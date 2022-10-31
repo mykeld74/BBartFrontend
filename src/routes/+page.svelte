@@ -1,2 +1,22 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Banner from '$img/homePageBanner.jpg';
+</script>
+
+<svelte:head><title>Home | Brenda Bennett Art</title></svelte:head>
+
+<div class="banner">
+	<img src={Banner} alt="Brenda Bennett Art Banner" />
+</div>
+<div class="container">
+	<p>Welcome to the online gallery for artwork by Brenda Bennett.</p>
+</div>
+
+<style lang="scss">
+	.banner {
+		max-width: 100vw;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+</style>

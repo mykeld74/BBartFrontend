@@ -1,0 +1,19 @@
+@import './reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body,
+html {
+	font-family: 'Special Elite', sans-serif;
+}
+:root {
+	--primaryColor: #339966;
+}
+p {
+	font-size: 18px;
+	line-height: 1.25;
+}
+.container {
+	width: calc(100% - 40px);
+	max-width: 1280px;
+	margin: auto;
+}
