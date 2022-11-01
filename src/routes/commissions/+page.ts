@@ -13,6 +13,7 @@ export async function load() {
       sold,
       originalDescription,
       printsDescription,
+      commissionDescription,
       etsyLink,
       mainImage{
         asset->{url, metadata{dimensions}},

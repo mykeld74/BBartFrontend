@@ -1,5 +1,6 @@
 <script>
 	import Logo from '$img/bbalogo.png';
+	import Nav from '$components/nav.svelte';
 </script>
 
 <header>
@@ -9,6 +10,7 @@
 		</div>
 		<div class="taglineContainer"><p class="tagline">Painting with Paper</p></div>
 	</div>
+	<Nav />
 </header>
 
 <style lang="scss">

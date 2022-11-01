@@ -9,13 +9,15 @@
 	export let mainImage: any;
 	export let originalDescription: any;
 	export let printsDescription: any;
+	export let commissionDescription: any;
 	export let etsyLink: string;
 	export let imgTypes: any;
+	export let page: string;
 </script>
 
 <section class="artworkCard">
 	<article class="artwork">
-		<div class="imgContainer">
+		<div class="imgContainer {page}">
 			{#if etsyLink}
 				<a href={etsyLink} target="_blank" rel="noopener noreferrer">
 					<img src={mainImage.asset.url} alt={mainImage.alt} loading="lazy" />
@@ -24,15 +26,21 @@
 				<img src={mainImage.asset.url} alt={mainImage.alt} loading="lazy" />
 			{/if}
 			{#if price}<p class="price">${price}</p>{/if}
-			{#if sold}
+			{#if sold && page != 'commissions'}
 				<p class="sold">Sold</p>
 			{/if}
 		</div>
 		<div class="artwork-info">
 			<p class="size">{size}</p>
 			<h3 class="title">"{title}"</h3>
-			{#if originalDescription}
+			{#if originalDescription && page === 'original-artwork'}
 				<PortableText value={originalDescription} />
+			{/if}
+			{#if commissionDescription && page === 'commissions'}
+				<PortableText value={commissionDescription} />
+			{/if}
+			{#if printsDescription && page === 'prints'}
+				<PortableText value={printsDescription} />
 			{/if}
 
 			<!-- <PortableText value={printsDescription} /> -->
@@ -41,6 +49,9 @@
 </section>
 
 <style lang="scss">
+	.artworkCard {
+		width: 100%;
+	}
 	.imgContainer {
 		width: 100%;
 		position: relative;
@@ -50,19 +61,25 @@
 		justify-content: center;
 		overflow: hidden;
 		margin-bottom: 10px;
-	}
-
-	.artwork img {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center center;
-		transition: opacity 0.3s ease-in-out;
-		&:hover {
-			opacity: 0.25;
+		img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+			transition: opacity 0.3s ease-in-out;
+			&:hover {
+				opacity: 0.25;
+			}
+		}
+		&.commissions {
+			img {
+				&:hover {
+					opacity: 1;
+				}
+			}
 		}
 	}
 

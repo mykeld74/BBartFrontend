@@ -31,6 +31,7 @@
 				{printsDescription}
 				{etsyLink}
 				{imgTypes}
+				page="original-artwork"
 			/>
 		{/each}
 	</ArtworkContainer>
