@@ -30,7 +30,7 @@
 			{#if openCollect}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div class="pages" transition:slide on:click={() => (openCollect = false)}>
-					<a href="/"><p>Prints</p></a>
+					<a href="/fine-art-prints"><p>Prints</p></a>
 					<a href="/original-artwork"><p>Original Artwork</p></a>
 					<a href="/commissions"><p>Commissions</p></a>
 				</div>
@@ -69,7 +69,7 @@
 	nav {
 		width: calc(100% - 40px);
 		max-width: 1280px;
-		margin: 0 auto;
+		margin: 0 auto 20px;
 		text-align: center;
 	}
 	#navBar {
@@ -82,6 +82,10 @@
 		border-right: 1px solid #333;
 		&.artist {
 			border-right: none;
+		}
+		@media (max-width: 768px) {
+			border-right: none;
+			border-bottom: 1px solid #333;
 		}
 	}
 	button {
@@ -96,6 +100,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		line-height: 1;
+		@media (max-width: 768px) {
+			justify-content: flex-start;
+			/* height: 30px; */
+		}
 	}
 	.navSection {
 		position: relative;

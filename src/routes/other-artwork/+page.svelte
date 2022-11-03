@@ -8,14 +8,13 @@
 	$: ({ Artwork } = data);
 </script>
 
-<svelte:head><title>Original Artwork | Brenda Bennett Art</title></svelte:head>
+<svelte:head><title>Other Artwork | Brenda Bennett Art</title></svelte:head>
 
 <div class="container" in:fade>
-	<h1>Original Artwork</h1>
+	<h1>Other Artwork</h1>
 	<p>
-		Serious collectors of original works are welcome to schedule an appointment at Brenda’s home
-		studio, near Belmar in Lakewood, Colorado, Mondays through Thursdays from 9am-2pm. Contact
-		Brenda to schedule your appointment here:
+		Additional subjects Brenda is drawn to paint include angels, horses, flowers, fish, and other
+		“random things of beauty.” Click on any of the images to view it in Brenda’s Etsy store.
 	</p>
 
 	<ArtworkContainer>
@@ -33,7 +32,7 @@
 				{commissionDescription}
 				{etsyLink}
 				{imgTypes}
-				page="original-artwork"
+				page="other-artwork"
 			/>
 		{/each}
 	</ArtworkContainer>

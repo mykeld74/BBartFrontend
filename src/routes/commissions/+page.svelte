@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import Card from '$components/card.svelte';
 	import ArtworkContainer from '$components/artworkContainer.svelte';
 	export let Artwork: any;
@@ -9,7 +10,7 @@
 
 <svelte:head><title>Commissions | Brenda Bennet Art</title></svelte:head>
 
-<div class="container">
+<div class="container" in:fade>
 	<h1>Commissions</h1>
 	<p>
 		Brenda will be taking new commissions in November. Please send your ideas to the artist on her

@@ -26,7 +26,7 @@
 				<img src={mainImage.asset.url} alt={mainImage.alt} loading="lazy" />
 			{/if}
 			{#if price}<p class="price">${price}</p>{/if}
-			{#if sold && page != 'commissions'}
+			{#if sold && page === 'original-artwork'}
 				<p class="sold">Sold</p>
 			{/if}
 		</div>
@@ -55,7 +55,7 @@
 	.imgContainer {
 		width: 100%;
 		position: relative;
-		aspect-ratio: 5/4;
+		aspect-ratio: 413/270;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -70,14 +70,11 @@
 			object-fit: cover;
 			object-position: center center;
 			transition: opacity 0.3s ease-in-out;
-			&:hover {
-				opacity: 0.25;
-			}
 		}
-		&.commissions {
+		&.original-artwork {
 			img {
 				&:hover {
-					opacity: 1;
+					opacity: 0.25;
 				}
 			}
 		}
