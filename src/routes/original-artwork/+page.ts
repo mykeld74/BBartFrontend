@@ -14,10 +14,7 @@ export async function load() {
       originalDescription,
       printsDescription,
       etsyLink,
-      mainImage{
-        asset->{url, metadata{dimensions}},
-        alt
-      }
+      mainImage
 		}`;
 	const Artwork = await client.fetch(query);
 

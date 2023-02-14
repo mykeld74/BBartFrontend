@@ -14,7 +14,7 @@
 			<a href="/other-artwork">
 				<div class="image">
 					<img
-						src={data.Images[0].mainImage.asset.url}
+						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539930/${data.Images[0].mainImage.public_id}`}
 						alt={data.Images[0].mainImage.alt}
 						loading="lazy"
 					/>
@@ -25,7 +25,7 @@
 		<div class="linkPrints">
 			<div class="image">
 				<img
-					src={data.Images[1].mainImage.asset.url}
+					src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539930/${data.Images[1].mainImage.public_id}`}
 					alt={data.Images[1].mainImage.alt}
 					loading="lazy"
 				/>
@@ -35,7 +35,7 @@
 		<div class="linkPrints">
 			<div class="image">
 				<img
-					src={data.Images[2].mainImage.asset.url}
+					src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539930/${data.Images[2].mainImage.public_id}`}
 					alt={data.Images[2].mainImage.alt}
 					loading="lazy"
 				/>

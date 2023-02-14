@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
+	import { fade, blur } from 'svelte/transition';
 	import Card from '$components/card.svelte';
 	import ArtworkContainer from '$components/artworkContainer.svelte';
 	export let Artwork: any;
@@ -18,23 +18,25 @@
 		your inquiry quickly to consult with you. Some of her best work has come from her clients’
 		hearts!
 	</p>
-	<ArtworkContainer>
-		{#each Artwork as { title, slug, size, series, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink, imgTypes }}
-			<Card
-				{title}
-				{slug}
-				{size}
-				{series}
-				{price}
-				{sold}
-				{mainImage}
-				{originalDescription}
-				{printsDescription}
-				{commissionDescription}
-				{etsyLink}
-				{imgTypes}
-				page="commissions"
-			/>
+	<ArtworkContainer additionalClasses="fourWide">
+		{#each Artwork as { title, slug, size, series, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink, imgTypes }, i}
+			<div class="cardContainer" in:blur={{ duration: 500, delay: 125 * i }}>
+				<Card
+					{title}
+					{slug}
+					{size}
+					{series}
+					{price}
+					{sold}
+					{mainImage}
+					{originalDescription}
+					{printsDescription}
+					{commissionDescription}
+					{etsyLink}
+					{imgTypes}
+					page="commissions"
+				/>
+			</div>
 		{/each}
 	</ArtworkContainer>
 </div>

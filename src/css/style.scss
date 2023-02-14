@@ -7,13 +7,29 @@ html {
 }
 :root {
 	--primaryColor: #339966;
+	--linkColor: #000;
+	--black: #000;
+}
+h1 {
+	font-size: clamp(30px, 5vw, 50px);
+	font-weight: 300;
+}
+h2 {
+	font-size: clamp(22px, 4vw, 30px);
+	font-weight: 300;
 }
 p {
-	font-size: 18px;
+	font-size: clamp(18px, 2.5vw, 22px);
 	line-height: 1.25;
+	font-weight: 100;
 }
 .container {
 	width: calc(100% - 40px);
 	max-width: 1280px;
 	margin: auto;
+}
+
+a {
+	color: var(--linkColor);
+	text-decoration: none;
 }

@@ -3,24 +3,37 @@
 	let openCollect = false;
 	let openExperience = false;
 	let openArtists = false;
+	let showOverlay = false;
 
 	const handleClicks = (buttonType: string) => {
 		if (buttonType === 'collect') {
 			openCollect = !openCollect;
+			showOverlay = true;
 			openExperience = false;
 			openArtists = false;
 		} else if (buttonType === 'experience') {
 			openExperience = !openExperience;
+			showOverlay = true;
 			openCollect = false;
 			openArtists = false;
 		} else if (buttonType === 'artist') {
 			openArtists = !openArtists;
+			showOverlay = true;
 			openCollect = false;
 			openExperience = false;
 		}
 	};
 </script>
 
+<div
+	class={showOverlay ? 'navOverlay show' : 'navOverlay'}
+	on:click={() => {
+		openCollect = false;
+		openExperience = false;
+		openArtists = false;
+		showOverlay = false;
+	}}
+/>
 <nav>
 	<div id="navBar">
 		<div class="navSection">
@@ -29,7 +42,14 @@
 			</div>
 			{#if openCollect}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div class="pages" transition:slide on:click={() => (openCollect = false)}>
+				<div
+					class="pages"
+					transition:slide
+					on:click={() => {
+						openCollect = false;
+						showOverlay = false;
+					}}
+				>
 					<a href="/fine-art-prints"><p>Prints</p></a>
 					<a href="/original-artwork"><p>Original Artwork</p></a>
 					<a href="/commissions"><p>Commissions</p></a>
@@ -42,7 +62,14 @@
 			</div>
 			{#if openExperience}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div class="pages" transition:slide on:click={() => (openExperience = false)}>
+				<div
+					class="pages"
+					transition:slide
+					on:click={() => {
+						openExperience = false;
+						showOverlay = false;
+					}}
+				>
 					<a href="/"><p>Prints</p></a>
 					<a href="/original-artwork"><p>Original Artwork</p></a>
 					<a href="/commissions"><p>Commissions</p></a>
@@ -55,8 +82,15 @@
 			</div>
 			{#if openArtists}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div class="pages" transition:slide on:click={() => (openArtists = false)}>
-					<a href="/"><p>Prints</p></a>
+				<div
+					class="pages"
+					transition:slide
+					on:click={() => {
+						openArtists = false;
+						showOverlay = false;
+					}}
+				>
+					<a href="/artist-biography"><p>Artist Biography</p></a>
 					<a href="/original-artwork"><p>Original Artwork</p></a>
 					<a href="/commissions"><p>Commissions</p></a>
 				</div>
@@ -123,7 +157,26 @@
 				color: #000;
 				cursor: pointer;
 				text-align: center;
+				font-size: 16px;
+				@media (max-width: 580px) {
+					text-align: left;
+				}
 			}
 		}
+	}
+	.navOverlay.show {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: transparent;
+	}
+	.navOverlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 0px;
+		height: 0px;
 	}
 </style>
