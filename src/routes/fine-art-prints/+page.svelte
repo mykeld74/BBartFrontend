@@ -23,24 +23,28 @@
 			</a>
 		</div>
 		<div class="linkPrints">
-			<div class="image">
-				<img
-					src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539930/${data.Images[1].mainImage.public_id}`}
-					alt={data.Images[1].mainImage.alt}
-					loading="lazy"
-				/>
-			</div>
-			<div class="linkText"><p>Colorado Flag Series</p></div>
+			<a href="/colorado-flag">
+				<div class="image">
+					<img
+						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539930/${data.Images[1].mainImage.public_id}`}
+						alt={data.Images[1].mainImage.alt}
+						loading="lazy"
+					/>
+				</div>
+				<div class="linkText"><p>Colorado Flag Series</p></div>
+			</a>
 		</div>
 		<div class="linkPrints">
-			<div class="image">
-				<img
-					src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539930/${data.Images[2].mainImage.public_id}`}
-					alt={data.Images[2].mainImage.alt}
-					loading="lazy"
-				/>
-			</div>
-			<div class="linkText"><p>Aspen Series</p></div>
+			<a href="aspens">
+				<div class="image">
+					<img
+						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539930/${data.Images[2].mainImage.public_id}`}
+						alt={data.Images[2].mainImage.alt}
+						loading="lazy"
+					/>
+				</div>
+				<div class="linkText"><p>Aspen Series</p></div>
+			</a>
 		</div>
 	</div>
 </div>

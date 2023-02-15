@@ -25,6 +25,10 @@
 	};
 </script>
 
+<!-- <svelte:head>
+	<link rel="stylesheet" href="../src/css/container.css" />
+</svelte:head> -->
+
 <div
 	class={showOverlay ? 'navOverlay show' : 'navOverlay'}
 	on:click={() => {
@@ -38,7 +42,7 @@
 	<div id="navBar">
 		<div class="navSection">
 			<div class="buttonContainer">
-				<button on:click={() => handleClicks('collect')}>Collect Art</button>
+				<button class="navButton" on:click={() => handleClicks('collect')}>Collect Art</button>
 			</div>
 			{#if openCollect}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -58,7 +62,8 @@
 		</div>
 		<div class="navSection">
 			<div class="buttonContainer">
-				<button on:click={() => handleClicks('experience')}>Experience Art</button>
+				<button class="navButton" on:click={() => handleClicks('experience')}>Experience Art</button
+				>
 			</div>
 			{#if openExperience}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -78,7 +83,7 @@
 		</div>
 		<div class="navSection">
 			<div class="buttonContainer artist">
-				<button on:click={() => handleClicks('artist')}>Meet the Artist</button>
+				<button class="navButton" on:click={() => handleClicks('artist')}>Meet the Artist</button>
 			</div>
 			{#if openArtists}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -105,24 +110,22 @@
 		max-width: 1280px;
 		margin: 0 auto 20px;
 		text-align: center;
+		container: navBar / inline-size;
 	}
 	#navBar {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		grid-template-columns: var(--navTemplateColumns);
 		width: 100%;
 		max-width: 540px;
 	}
+
 	.buttonContainer {
 		border-right: 1px solid #333;
 		&.artist {
 			border-right: none;
 		}
-		@media (max-width: 768px) {
-			border-right: none;
-			border-bottom: 1px solid #333;
-		}
 	}
-	button {
+	.navButton {
 		background: none;
 		border: none;
 		font-size: 16px;
@@ -135,11 +138,8 @@
 		align-items: center;
 		justify-content: center;
 		line-height: 1;
-		@media (max-width: 768px) {
-			justify-content: flex-start;
-			/* height: 30px; */
-		}
 	}
+
 	.navSection {
 		position: relative;
 	}
@@ -158,9 +158,6 @@
 				cursor: pointer;
 				text-align: center;
 				font-size: 16px;
-				@media (max-width: 580px) {
-					text-align: left;
-				}
 			}
 		}
 	}

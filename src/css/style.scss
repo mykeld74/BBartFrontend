@@ -1,5 +1,4 @@
 @import './reset.css';
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 body,
 html {
@@ -9,7 +8,9 @@ html {
 	--primaryColor: #339966;
 	--linkColor: #000;
 	--black: #000;
+	--navTemplateColumns: repeat(auto-fit, minmax(180px, 1fr));
 }
+
 h1 {
 	font-size: clamp(30px, 5vw, 50px);
 	font-weight: 300;
@@ -32,4 +33,16 @@ p {
 a {
 	color: var(--linkColor);
 	text-decoration: none;
+}
+@container navBar (max-width: 579px) {
+	#navBar {
+		--navTemplateColumns: 1fr;
+	}
+	.buttonContainer {
+		border-right: none !important;
+		border-bottom: 1px solid #333;
+	}
+	.navButton {
+		justify-content: flex-start;
+	}
 }
