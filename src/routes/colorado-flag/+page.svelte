@@ -24,7 +24,7 @@
 
 		<ArtworkContainer>
 			{#each Artwork as { title, slug, size, series, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink, imgTypes }, i}
-				<div class="cardContainer" in:blur={{ duration: 500, delay: 125 * i }}>
+				<div class="cardContainer" in:blur={{ duration: 300, delay: 100 * i }}>
 					<Card
 						{title}
 						{slug}
