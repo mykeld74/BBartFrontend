@@ -4,8 +4,6 @@
 	/** @type {import('./$types').PageData} */
 	export let data: any;
 	$: ({ Bio } = data);
-
-	$: console.log(Bio[0]);
 </script>
 
 <div class="container">

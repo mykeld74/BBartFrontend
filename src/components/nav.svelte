@@ -96,8 +96,7 @@
 					}}
 				>
 					<a href="/artist-biography"><p>Artist Biography</p></a>
-					<a href="/original-artwork"><p>Original Artwork</p></a>
-					<a href="/commissions"><p>Commissions</p></a>
+					<a href="/her-studio"><p>Her Studio</p></a>
 				</div>
 			{/if}
 		</div>
@@ -149,7 +148,7 @@
 		left: 0;
 		width: 100%;
 		background: #fff;
-		z-index: 1;
+		z-index: 200;
 		a {
 			text-decoration: none;
 			p {
