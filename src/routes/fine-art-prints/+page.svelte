@@ -6,6 +6,10 @@
 	$: ({ Images } = data);
 </script>
 
+<svelte:head>
+	<title>Fine Art Prints | Brenda Bennett Art</title>
+</svelte:head>
+
 <div class="container" in:fade>
 	<h1>Fine Art Prints</h1>
 

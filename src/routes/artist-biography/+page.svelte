@@ -6,6 +6,10 @@
 	$: ({ Bio } = data);
 </script>
 
+<svelte:head>
+	<title>Artist Biography | Brenda Bennett Art</title>
+</svelte:head>
+
 <div class="container">
 	<h1>{Bio[0].title}</h1>
 	<div class="bio">

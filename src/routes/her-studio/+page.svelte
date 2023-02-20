@@ -7,6 +7,10 @@
 	$: ({ HerStudio } = data);
 </script>
 
+<svelte:head>
+	<title>Her Studio | Brenda Bennett Art</title>
+</svelte:head>
+
 <div class="container">
 	<div class="studioWrapper">
 		<div class="studioContainer">
