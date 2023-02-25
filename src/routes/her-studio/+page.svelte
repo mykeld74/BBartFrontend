@@ -20,35 +20,35 @@
 			</div>
 			<div class="image1 imageContainer" in:fade={{ duration: 125, delay: 100 }}>
 				<img
-					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/studio_pic_WorkSpace"
+					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_800/v1668539933/studio_pic_WorkSpace"
 					alt="Her Studio"
 					loading="lazy"
 				/>
 			</div>
 			<div class="image2 imageContainer" in:fade={{ duration: 125, delay: 200 }}>
 				<img
-					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/studio_pic_Scissors-1"
+					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_400/v1668539933/studio_pic_Scissors-1"
 					alt="Her Studio"
 					loading="lazy"
 				/>
 			</div>
 			<div class="image3 imageContainer" in:fade={{ duration: 125, delay: 300 }}>
 				<img
-					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/studio_pic_InkSprays"
+					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_400/v1668539933/studio_pic_InkSprays"
 					alt="Her Studio"
 					loading="lazy"
 				/>
 			</div>
 			<div class="image4 imageContainer" in:fade={{ duration: 125, delay: 400 }}>
 				<img
-					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/studio4"
+					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_400/v1668539933/studio4"
 					alt="Her Studio"
 					loading="lazy"
 				/>
 			</div>
 			<div class="image5 imageContainer" in:fade={{ duration: 125, delay: 400 }}>
 				<img
-					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/studio_pic_ArtistSeriesImages-1"
+					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_800/v1668539933/studio_pic_ArtistSeriesImages-1"
 					alt="Her Studio"
 					loading="lazy"
 				/>

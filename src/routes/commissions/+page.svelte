@@ -34,6 +34,7 @@
 					{commissionDescription}
 					{etsyLink}
 					{imgTypes}
+					imgWidth="500"
 					page="commissions"
 				/>
 			</div>

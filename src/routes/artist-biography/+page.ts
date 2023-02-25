@@ -7,14 +7,8 @@ export async function load() {
     title,
     slug,
     body,
-    mainImage{
-      asset->{url, metadata{dimensions}},
-      alt
-    },
-    secondaryImage{
-      asset->{url, metadata{dimensions}},
-      alt
-    },
+    mainImage,
+    secondaryImage,
   }`;
 	const Bio = await client.fetch(query);
 

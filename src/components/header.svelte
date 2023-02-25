@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
 	import Logo from '$img/bbalogo.png';
 	import Nav from '$components/nav.svelte';
+	export let ArtPages: any;
+	export let ArtistPages: any;
 </script>
 
 <header>
@@ -10,7 +12,7 @@
 		</div>
 		<div class="taglineContainer"><p class="tagline">Painting with Paper</p></div>
 	</div>
-	<Nav />
+	<Nav {ArtPages} {ArtistPages} />
 </header>
 
 <style lang="scss">

@@ -1,8 +1,11 @@
-<script>
-	import { fade } from 'svelte/transition';
+<script lang="ts">
 	import '$css/style.scss';
 	import Header from '$components/header.svelte';
 	import Footer from '$components/footer.svelte';
+	export let Pages: any;
+	/** @type {import('./$types').PageData} */
+	export let data: any;
+	$: ({ ArtPages, ArtistPages } = data);
 </script>
 
 <svelte:head>
@@ -14,6 +17,6 @@
 	/>
 </svelte:head>
 
-<Header />
+<Header {ArtPages} {ArtistPages} />
 <slot />
 <Footer />

@@ -14,11 +14,19 @@
 	<h1>{Bio[0].title}</h1>
 	<div class="bio">
 		<div class="bioPic">
-			<img src={Bio[0].mainImage.asset.url} alt={Bio[0].mainImage.alt} loading="lazy" />
+			<img
+				src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_300/v1668539933/${Bio[0].mainImage.public_id}`}
+				alt="Brenda Bennett"
+				loading="lazy"
+			/>
 		</div>
 		<PortableText value={Bio[0].body} />
 	</div>
-	<img src={Bio[0].secondaryImage.asset.url} alt={Bio[0].secondaryImage.alt} loading="lazy" />
+	<img
+		src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/${Bio[0].secondaryImage.public_id}`}
+		alt="Brenda Bennett Landscape"
+		loading="lazy"
+	/>
 </div>
 
 <style>

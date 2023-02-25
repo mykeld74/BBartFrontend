@@ -14,6 +14,7 @@
 	export let etsyLink: string;
 	export let imgTypes: any;
 	export let page: string;
+	export let imgWidth: string = 'auto';
 </script>
 
 <section class="artworkCard">
@@ -22,14 +23,14 @@
 			{#if etsyLink}
 				<a href={etsyLink} target="_blank" rel="noopener noreferrer">
 					<img
-						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/${mainImage.public_id}`}
+						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_${imgWidth}/v1668539933/${mainImage.public_id}`}
 						alt={title}
 						loading="lazy"
 					/>
 				</a>
 			{:else}
 				<img
-					src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/${mainImage.public_id}`}
+					src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_${imgWidth}/v1668539933/${mainImage.public_id}`}
 					alt={title}
 					loading="lazy"
 				/>

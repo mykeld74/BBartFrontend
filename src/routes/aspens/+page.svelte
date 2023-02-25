@@ -42,6 +42,7 @@
 						{commissionDescription}
 						{etsyLink}
 						{imgTypes}
+						imgWidth="500"
 						page="other-artwork"
 					/>
 				</div>

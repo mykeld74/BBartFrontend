@@ -4,6 +4,8 @@
 	let openExperience = false;
 	let openArtists = false;
 	let showOverlay = false;
+	export let ArtPages: any;
+	export let ArtistPages: any;
 
 	const handleClicks = (buttonType: string) => {
 		if (buttonType === 'collect') {
@@ -29,6 +31,7 @@
 	<link rel="stylesheet" href="../src/css/container.css" />
 </svelte:head> -->
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	class={showOverlay ? 'navOverlay show' : 'navOverlay'}
 	on:click={() => {
@@ -75,9 +78,9 @@
 						showOverlay = false;
 					}}
 				>
-					<a href="/"><p>Prints</p></a>
-					<a href="/original-artwork"><p>Original Artwork</p></a>
-					<a href="/commissions"><p>Commissions</p></a>
+					{#each ArtPages as artPage}
+						<a href="/{artPage.slug.current}"><p>{artPage.navTitle}</p></a>
+					{/each}
 				</div>
 			{/if}
 		</div>
@@ -95,8 +98,9 @@
 						showOverlay = false;
 					}}
 				>
-					<a href="/artist-biography"><p>Artist Biography</p></a>
-					<a href="/her-studio"><p>Her Studio</p></a>
+					{#each ArtistPages as artistPage}
+						<a href="/{artistPage.slug.current}"><p>{artistPage.navTitle}</p></a>
+					{/each}
 				</div>
 			{/if}
 		</div>
