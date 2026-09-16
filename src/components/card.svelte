@@ -1,20 +1,19 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
-	import ArtworkContainer from './artworkContainer.svelte';
-	export let title: string;
-	export let slug: any;
-	export let size: string;
-	export let series: any;
-	export let price: number;
-	export let sold: boolean;
-	export let mainImage: any;
-	export let originalDescription: any;
-	export let printsDescription: any;
-	export let commissionDescription: any;
-	export let etsyLink: string;
-	export let imgTypes: any;
-	export let page: string;
-	export let imgWidth: string = 'auto';
+
+	let {
+		title,
+		size,
+		price,
+		sold,
+		mainImage,
+		originalDescription,
+		printsDescription,
+		commissionDescription,
+		etsyLink,
+		page,
+		imgWidth = 'auto'
+	} = $props();
 </script>
 
 <section class="artworkCard">
@@ -52,13 +51,11 @@
 			{#if printsDescription && page === 'other-artwork'}
 				<div class="desc printDesc"><PortableText value={printsDescription} /></div>
 			{/if}
-
-			<!-- <PortableText value={printsDescription} /> -->
 		</div>
 	</article>
 </section>
 
-<style lang="scss">
+<style>
 	.artworkCard {
 		width: 100%;
 	}
@@ -71,6 +68,7 @@
 		justify-content: center;
 		overflow: hidden;
 		margin-bottom: 10px;
+
 		img {
 			position: absolute;
 			top: 0px;
@@ -81,6 +79,7 @@
 			object-position: center center;
 			transition: opacity 0.3s ease-in-out;
 		}
+
 		&.original-artwork {
 			img {
 				&:hover {

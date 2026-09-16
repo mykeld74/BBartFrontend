@@ -3,12 +3,11 @@
 	import { fade, blur } from 'svelte/transition';
 	import Card from '$components/card.svelte';
 	import ArtworkContainer from '$components/artworkContainer.svelte';
-	export let Artwork: any;
-	/** @type {import('./$types').PageData} */
-	export let data: any;
-	$: ({ Artwork } = data);
 
-	let isLoaded = false;
+	let { data } = $props();
+	const artwork = $derived(data.Artwork);
+
+	let isLoaded = $state(false);
 	onMount(() => {
 		isLoaded = true;
 	});
@@ -27,13 +26,11 @@
 		<p>Click on any of the images to view it in Brenda’s Etsy store.</p>
 
 		<ArtworkContainer>
-			{#each Artwork as { title, slug, size, series, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink, imgTypes }, i}
+			{#each artwork as { title, size, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink }, i}
 				<div class="cardContainer" in:blur={{ duration: 300, delay: 100 * i }}>
 					<Card
 						{title}
-						{slug}
 						{size}
-						{series}
 						{price}
 						{sold}
 						{mainImage}
@@ -41,7 +38,6 @@
 						{printsDescription}
 						{commissionDescription}
 						{etsyLink}
-						{imgTypes}
 						imgWidth="500"
 						page="other-artwork"
 					/>

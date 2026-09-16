@@ -14,9 +14,10 @@
 	</div>
 </div>
 
-<style lang="scss">
+<style>
 	.banner {
 		max-width: 100vw;
+
 		img {
 			width: 100%;
 			height: auto;

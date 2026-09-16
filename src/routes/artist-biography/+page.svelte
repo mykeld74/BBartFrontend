@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
-	export let Bio: any;
-	/** @type {import('./$types').PageData} */
-	export let data: any;
-	$: ({ Bio } = data);
+
+	let { data } = $props();
+	const bio = $derived(data.Bio);
 </script>
 
 <svelte:head>
@@ -11,19 +10,19 @@
 </svelte:head>
 
 <div class="container">
-	<h1>{Bio[0].title}</h1>
+	<h1>{bio[0].title}</h1>
 	<div class="bio">
 		<div class="bioPic">
 			<img
-				src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_300/v1668539933/${Bio[0].mainImage.public_id}`}
+				src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_300/v1668539933/${bio[0].mainImage.public_id}`}
 				alt="Brenda Bennett"
 				loading="lazy"
 			/>
 		</div>
-		<PortableText value={Bio[0].body} />
+		<PortableText value={bio[0].body} />
 	</div>
 	<img
-		src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/${Bio[0].secondaryImage.public_id}`}
+		src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_auto/v1668539933/${bio[0].secondaryImage.public_id}`}
 		alt="Brenda Bennett Landscape"
 		loading="lazy"
 	/>

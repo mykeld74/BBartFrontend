@@ -1,9 +1,17 @@
-<script>
-	export let additionalClasses = '';
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	let {
+		additionalClasses = '',
+		children
+	}: {
+		additionalClasses?: string;
+		children: Snippet;
+	} = $props();
 </script>
 
 <section class={`artworkContainer ${additionalClasses}`}>
-	<slot />
+	{@render children()}
 </section>
 
 <style>

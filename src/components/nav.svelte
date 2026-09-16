@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	let openCollect = false;
-	let openExperience = false;
-	let openArtists = false;
-	let showOverlay = false;
-	export let ArtPages: any;
-	export let ArtistPages: any;
+
+	let { ArtPages, ArtistPages } = $props();
+
+	let openCollect = $state(false);
+	let openExperience = $state(false);
+	let openArtists = $state(false);
+	let showOverlay = $state(false);
 
 	const handleClicks = (buttonType: string) => {
 		if (buttonType === 'collect') {
@@ -25,34 +26,32 @@
 			openExperience = false;
 		}
 	};
-</script>
 
-<!-- <svelte:head>
-	<link rel="stylesheet" href="../src/css/container.css" />
-</svelte:head> -->
-
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div
-	class={showOverlay ? 'navOverlay show' : 'navOverlay'}
-	on:click={() => {
+	const closeMenus = () => {
 		openCollect = false;
 		openExperience = false;
 		openArtists = false;
 		showOverlay = false;
-	}}
-/>
+	};
+</script>
+
+<div
+	class={showOverlay ? 'navOverlay show' : 'navOverlay'}
+	role="presentation"
+	onclick={closeMenus}
+></div>
 <nav>
 	<div id="navBar">
 		<div class="navSection">
 			<div class="buttonContainer">
-				<button class="navButton" on:click={() => handleClicks('collect')}>Collect Art</button>
+				<button class="navButton" onclick={() => handleClicks('collect')}>Collect Art</button>
 			</div>
 			{#if openCollect}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div
 					class="pages"
+					role="presentation"
 					transition:slide
-					on:click={() => {
+					onclick={() => {
 						openCollect = false;
 						showOverlay = false;
 					}}
@@ -65,15 +64,16 @@
 		</div>
 		<div class="navSection">
 			<div class="buttonContainer">
-				<button class="navButton" on:click={() => handleClicks('experience')}>Experience Art</button
+				<button class="navButton" onclick={() => handleClicks('experience')}
+					>Experience Art</button
 				>
 			</div>
 			{#if openExperience}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div
 					class="pages"
+					role="presentation"
 					transition:slide
-					on:click={() => {
+					onclick={() => {
 						openExperience = false;
 						showOverlay = false;
 					}}
@@ -86,14 +86,14 @@
 		</div>
 		<div class="navSection">
 			<div class="buttonContainer artist">
-				<button class="navButton" on:click={() => handleClicks('artist')}>Meet the Artist</button>
+				<button class="navButton" onclick={() => handleClicks('artist')}>Meet the Artist</button>
 			</div>
 			{#if openArtists}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div
 					class="pages"
+					role="presentation"
 					transition:slide
-					on:click={() => {
+					onclick={() => {
 						openArtists = false;
 						showOverlay = false;
 					}}
@@ -107,7 +107,7 @@
 	</div>
 </nav>
 
-<style lang="scss">
+<style>
 	nav {
 		width: calc(100% - 40px);
 		max-width: 1280px;
@@ -124,6 +124,7 @@
 
 	.buttonContainer {
 		border-right: 1px solid #333;
+
 		&.artist {
 			border-right: none;
 		}
@@ -132,7 +133,6 @@
 		background: none;
 		border: none;
 		font-size: 16px;
-		font-weight: 500;
 		font-weight: 700;
 		padding: 0;
 		width: 100%;
@@ -153,8 +153,10 @@
 		width: 100%;
 		background: #fff;
 		z-index: 200;
+
 		a {
 			text-decoration: none;
+
 			p {
 				font-weight: 700;
 				color: #000;

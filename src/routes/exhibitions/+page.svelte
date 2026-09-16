@@ -68,7 +68,7 @@
 	</p>
 </div>
 
-<style lang="scss">
+<style>
 	.caption {
 		font-size: 14px;
 		color: var(--primaryColor);
@@ -77,15 +77,19 @@
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
 		gap: 30px;
+
 		@media (max-width: 900px) {
 			grid-template-columns: 1fr 2fr;
 		}
+
 		@media (max-width: 600px) {
 			grid-template-columns: 1fr;
 		}
+
 		div {
 			justify-self: start;
 		}
+
 		p {
 			margin: 0;
 		}

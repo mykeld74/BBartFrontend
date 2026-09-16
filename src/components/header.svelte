@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Logo from '$img/bbalogo.png';
 	import Nav from '$components/nav.svelte';
-	export let ArtPages: any;
-	export let ArtistPages: any;
+
+	let { ArtPages, ArtistPages } = $props();
 </script>
 
 <header>
@@ -15,7 +15,7 @@
 	<Nav {ArtPages} {ArtistPages} />
 </header>
 
-<style lang="scss">
+<style>
 	.headerContainer {
 		display: grid;
 		grid-template-columns: clamp(90px, 25%, 250px) 1fr;

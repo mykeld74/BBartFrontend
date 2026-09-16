@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	export let Images: any;
-	/** @type {import('./$types').PageData} */
-	export let data: any;
-	$: ({ Images } = data);
+
+	let { data } = $props();
 </script>
 
 <svelte:head>
@@ -39,7 +37,7 @@
 			</a>
 		</div>
 		<div class="linkPrints">
-			<a href="aspens">
+			<a href="/aspens">
 				<div class="image">
 					<img
 						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539930/${data.Images[2].mainImage.public_id}`}

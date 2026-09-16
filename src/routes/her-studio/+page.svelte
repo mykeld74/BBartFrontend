@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { PortableText } from '@portabletext/svelte';
-	export let HerStudio: any;
-	/** @type {import('./$types').PageData} */
-	export let data: any;
-	$: ({ HerStudio } = data);
+
+	let { data } = $props();
+	const herStudio = $derived(data.HerStudio);
 </script>
 
 <svelte:head>
@@ -15,8 +14,8 @@
 	<div class="studioWrapper">
 		<div class="studioContainer">
 			<div class="herStudio">
-				<h1>{HerStudio[0].title}</h1>
-				<PortableText value={HerStudio[0].body} />
+				<h1>{herStudio[0].title}</h1>
+				<PortableText value={herStudio[0].body} />
 			</div>
 			<div class="image1 imageContainer" in:fade={{ duration: 125, delay: 100 }}>
 				<img
@@ -57,7 +56,7 @@
 	</div>
 </div>
 
-<style lang="scss">
+<style>
 	.studioWrapper {
 		position: relative;
 		container: studio / inline-size;
