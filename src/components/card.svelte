@@ -20,9 +20,9 @@
 	const imageSrc = $derived(getImageSrc(mainImage, `f_auto,q_auto,w_${imgWidth}`));
 </script>
 
-<section class="artworkCard scrollFade">
+<section class="artworkCard">
 	<article class="artwork">
-		<div class="imgContainer {page}">
+		<div class="imgContainer scrollFade {page}">
 			{#if etsyLink}
 				<a href={etsyLink} target="_blank" rel="noopener noreferrer">
 					<LoadingImage src={imageSrc} alt={mainImage?.alt || title} fill />

@@ -16,7 +16,7 @@
 		your inquiry quickly to consult with you. Some of her best work has come from her clients’
 		hearts!
 	</p>
-	<ArtworkContainer additionalClasses="fourWide">
+	<ArtworkContainer>
 		{#each artwork as { title, size, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink }}
 			<div class="cardContainer">
 				<Card

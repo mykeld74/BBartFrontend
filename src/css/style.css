@@ -114,13 +114,13 @@ a {
 			animation-range: entry 0% entry 58%;
 		}
 		.artworkContainer.fourWide > :nth-child(4n + 2) .scrollFade {
-			animation-range: entry 8% entry 64%;
+			animation-range: entry 10% entry 68%;
 		}
 		.artworkContainer.fourWide > :nth-child(4n + 3) .scrollFade {
-			animation-range: entry 16% entry 70%;
+			animation-range: entry 20% entry 78%;
 		}
 		.artworkContainer.fourWide > :nth-child(4n + 4) .scrollFade {
-			animation-range: entry 24% entry 76%;
+			animation-range: entry 30% entry 88%;
 		}
 
 		.linkContainer > :nth-child(3n + 1).scrollFade {
