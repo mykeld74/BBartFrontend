@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
+	import LoadingImage from '$components/loadingImage.svelte';
 
 	let { data } = $props();
 	const herStudio = $derived(data.HerStudio);
@@ -17,38 +18,38 @@
 				<PortableText value={herStudio[0].body} />
 			</div>
 			<div class="image1 imageContainer scrollFade">
-				<img
+				<LoadingImage
 					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_800/v1668539933/studio_pic_WorkSpace"
 					alt="Her Studio"
-					loading="lazy"
+					fill
 				/>
 			</div>
 			<div class="image2 imageContainer scrollFade">
-				<img
+				<LoadingImage
 					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_400/v1668539933/studio_pic_Scissors-1"
 					alt="Her Studio"
-					loading="lazy"
+					fill
 				/>
 			</div>
 			<div class="image3 imageContainer scrollFade">
-				<img
+				<LoadingImage
 					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_400/v1668539933/studio_pic_InkSprays"
 					alt="Her Studio"
-					loading="lazy"
+					fill
 				/>
 			</div>
 			<div class="image4 imageContainer scrollFade">
-				<img
+				<LoadingImage
 					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_400/v1668539933/studio4"
 					alt="Her Studio"
-					loading="lazy"
+					fill
 				/>
 			</div>
 			<div class="image5 imageContainer scrollFade">
-				<img
+				<LoadingImage
 					src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_800/v1668539933/studio_pic_ArtistSeriesImages-1"
 					alt="Her Studio"
-					loading="lazy"
+					fill
 				/>
 			</div>
 		</div>
@@ -82,11 +83,8 @@
 		grid-area: studioImage5;
 	}
 	.imageContainer {
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: center center;
-		}
+		position: relative;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
 	}
 </style>

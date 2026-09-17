@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import { getImageSrc } from '$lib/cloudinaryFetch';
+	import LoadingImage from '$components/loadingImage.svelte';
 
 	let {
 		title,
@@ -24,10 +25,10 @@
 		<div class="imgContainer {page}">
 			{#if etsyLink}
 				<a href={etsyLink} target="_blank" rel="noopener noreferrer">
-					<img src={imageSrc} alt={mainImage?.alt || title} loading="lazy" />
+					<LoadingImage src={imageSrc} alt={mainImage?.alt || title} fill />
 				</a>
 			{:else}
-				<img src={imageSrc} alt={mainImage?.alt || title} loading="lazy" />
+				<LoadingImage src={imageSrc} alt={mainImage?.alt || title} fill />
 			{/if}
 			{#if price}<p class="price">${price}</p>{/if}
 			{#if sold && page === 'original-artwork'}
@@ -63,25 +64,15 @@
 		justify-content: center;
 		overflow: hidden;
 		margin-bottom: 10px;
-
-		img {
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: center center;
-			transition: opacity 0.3s ease-in-out;
-		}
-
-		&.original-artwork {
-			img {
-				&:hover {
-					opacity: 0.25;
-				}
-			}
-		}
+	}
+	.imgContainer a,
+	.imgContainer :global(.loadingImage) {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+	}
+	.imgContainer.original-artwork :global(.loadingImage.loaded:hover img) {
+		opacity: 0.25;
 	}
 	.title {
 		min-height: 63px;
@@ -108,6 +99,7 @@
 		transform: rotate(-30deg);
 		font-weight: 600;
 		text-shadow: 3px 3px 4px #333;
+		z-index: 2;
 	}
 	.price {
 		font-size: 36px;

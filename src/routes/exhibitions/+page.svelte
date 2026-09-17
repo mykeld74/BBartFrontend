@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import { getImageSrc } from '$lib/cloudinaryFetch';
+	import LoadingImage from '$components/loadingImage.svelte';
 
 	let { data } = $props();
 	const events = $derived(data.events ?? []);
@@ -39,10 +40,9 @@
 	<h1>Shows and Exhibitions</h1>
 	<div class="contentBlock block1">
 		<div class="imgContainer scrollFade">
-			<img
-				src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539933/dennison`}
+			<LoadingImage
+				src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539933/dennison"
 				alt="Dennison Craft Fair"
-				loading="lazy"
 			/>
 			<p class="caption">Dennison Elementary School Craft Fair, November 2014</p>
 		</div>
@@ -55,10 +55,9 @@
 			chic Belmar shopping district ever since.
 		</p>
 		<div class="imgContainer scrollFade">
-			<img
-				src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539933/gilpin`}
+			<LoadingImage
+				src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539933/gilpin"
 				alt="Dennison Craft Fair"
-				loading="lazy"
 			/>
 			<p class="caption">Gilpin Arts 70th Annual Juried Exhibition, June 3, 2017</p>
 		</div>
@@ -72,17 +71,15 @@
 	</p>
 	<div class="imgBlock">
 		<div class="imgContainer scrollFade">
-			<img
-				src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_700/v1668539933/FirstFridayArtShow`}
+			<LoadingImage
+				src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_700/v1668539933/FirstFridayArtShow"
 				alt="First Friday Art Show"
-				loading="lazy"
 			/>
 		</div>
 		<div class="imgContainer scrollFade">
-			<img
-				src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_700/v1668539933/FirstFridayArtShow2`}
+			<LoadingImage
+				src="https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_700/v1668539933/FirstFridayArtShow2"
 				alt="First Friday Art Show"
-				loading="lazy"
 			/>
 		</div>
 	</div>
@@ -104,16 +101,16 @@
 		<section class="upcomingEvents">
 			<h2>Upcoming Events</h2>
 			<ul class="eventCardGrid">
-				{#each events as event}
+				{#each events as event (event._id)}
 					{@const popoverId = eventPopoverId(event._id)}
 					<li class="scrollFade">
 						<button type="button" class="eventCard" popovertarget={popoverId}>
 							{#if event.image?.asset?.url}
 								<div class="eventCardImage">
-									<img
+									<LoadingImage
 										src={getImageSrc(event.image, 'f_auto,q_auto,w_600')}
 										alt=""
-										loading="lazy"
+										fill
 									/>
 								</div>
 							{/if}
@@ -149,10 +146,10 @@
 
 								{#if event.image?.asset?.url}
 									<div class="eventModalImage">
-										<img
+										<LoadingImage
 											src={getImageSrc(event.image, 'f_auto,q_auto,w_900')}
 											alt={event.image.alt || event.title}
-											loading="lazy"
+											fill
 										/>
 									</div>
 								{/if}
@@ -259,11 +256,10 @@
 		outline: none;
 	}
 
-	.eventCardImage img {
-		width: 100%;
+	.eventCardImage {
+		position: relative;
 		aspect-ratio: 3 / 2;
-		object-fit: cover;
-		display: block;
+		overflow: hidden;
 	}
 
 	.eventCardBody {
@@ -386,11 +382,10 @@
 		transform: scale(1.05);
 	}
 
-	.eventModalImage img {
-		width: 100%;
+	.eventModalImage {
+		position: relative;
 		aspect-ratio: 16 / 10;
-		object-fit: cover;
-		display: block;
+		overflow: hidden;
 	}
 
 	.eventModalContent {

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getImageSrc } from '$lib/cloudinaryFetch';
+	import LoadingImage from '$components/loadingImage.svelte';
 
 	let { data } = $props();
 </script>
@@ -15,10 +16,10 @@
 		<div class="linkPrints scrollFade">
 			<a href="/other-artwork">
 				<div class="image">
-					<img
+					<LoadingImage
 						src={getImageSrc(data.Images[0].mainImage, 'f_auto,q_auto,w_500')}
 						alt={data.Images[0].mainImage?.alt || data.Images[0].title}
-						loading="lazy"
+						fill
 					/>
 				</div>
 				<div class="linkText"><p>Other Artwork</p></div>
@@ -27,10 +28,10 @@
 		<div class="linkPrints scrollFade">
 			<a href="/colorado-flag">
 				<div class="image">
-					<img
+					<LoadingImage
 						src={getImageSrc(data.Images[1].mainImage, 'f_auto,q_auto,w_500')}
 						alt={data.Images[1].mainImage?.alt || data.Images[1].title}
-						loading="lazy"
+						fill
 					/>
 				</div>
 				<div class="linkText"><p>Colorado Flag Series</p></div>
@@ -39,10 +40,10 @@
 		<div class="linkPrints scrollFade">
 			<a href="/aspens">
 				<div class="image">
-					<img
+					<LoadingImage
 						src={getImageSrc(data.Images[2].mainImage, 'f_auto,q_auto,w_500')}
 						alt={data.Images[2].mainImage?.alt || data.Images[2].title}
-						loading="lazy"
+						fill
 					/>
 				</div>
 				<div class="linkText"><p>Aspen Series</p></div>
@@ -58,10 +59,8 @@
 		gap: 2vw;
 	}
 	.image {
+		position: relative;
 		aspect-ratio: 4/2.99;
 		overflow: hidden;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 </style>
