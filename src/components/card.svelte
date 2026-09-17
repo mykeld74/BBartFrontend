@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
+	import { getImageSrc } from '$lib/cloudinaryFetch';
 
 	let {
 		title,
@@ -14,25 +15,19 @@
 		page,
 		imgWidth = 'auto'
 	} = $props();
+
+	const imageSrc = $derived(getImageSrc(mainImage, `f_auto,q_auto,w_${imgWidth}`));
 </script>
 
-<section class="artworkCard">
+<section class="artworkCard scrollFade">
 	<article class="artwork">
 		<div class="imgContainer {page}">
 			{#if etsyLink}
 				<a href={etsyLink} target="_blank" rel="noopener noreferrer">
-					<img
-						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_${imgWidth}/v1668539933/${mainImage.public_id}`}
-						alt={title}
-						loading="lazy"
-					/>
+					<img src={imageSrc} alt={mainImage?.alt || title} loading="lazy" />
 				</a>
 			{:else}
-				<img
-					src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_${imgWidth}/v1668539933/${mainImage.public_id}`}
-					alt={title}
-					loading="lazy"
-				/>
+				<img src={imageSrc} alt={mainImage?.alt || title} loading="lazy" />
 			{/if}
 			{#if price}<p class="price">${price}</p>{/if}
 			{#if sold && page === 'original-artwork'}

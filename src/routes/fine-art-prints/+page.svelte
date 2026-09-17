@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
+	import { getImageSrc } from '$lib/cloudinaryFetch';
 
 	let { data } = $props();
 </script>
@@ -8,40 +8,40 @@
 	<title>Fine Art Prints | Brenda Bennett Art</title>
 </svelte:head>
 
-<div class="container" in:fade>
+<div class="container">
 	<h1>Fine Art Prints</h1>
 
 	<div class="linkContainer">
-		<div class="linkPrints">
+		<div class="linkPrints scrollFade">
 			<a href="/other-artwork">
 				<div class="image">
 					<img
-						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539930/${data.Images[0].mainImage.public_id}`}
-						alt={data.Images[0].mainImage.alt}
+						src={getImageSrc(data.Images[0].mainImage, 'f_auto,q_auto,w_500')}
+						alt={data.Images[0].mainImage?.alt || data.Images[0].title}
 						loading="lazy"
 					/>
 				</div>
 				<div class="linkText"><p>Other Artwork</p></div>
 			</a>
 		</div>
-		<div class="linkPrints">
+		<div class="linkPrints scrollFade">
 			<a href="/colorado-flag">
 				<div class="image">
 					<img
-						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539930/${data.Images[1].mainImage.public_id}`}
-						alt={data.Images[1].mainImage.alt}
+						src={getImageSrc(data.Images[1].mainImage, 'f_auto,q_auto,w_500')}
+						alt={data.Images[1].mainImage?.alt || data.Images[1].title}
 						loading="lazy"
 					/>
 				</div>
 				<div class="linkText"><p>Colorado Flag Series</p></div>
 			</a>
 		</div>
-		<div class="linkPrints">
+		<div class="linkPrints scrollFade">
 			<a href="/aspens">
 				<div class="image">
 					<img
-						src={`https://res.cloudinary.com/drst9cyhc/image/upload/f_auto,q_auto,w_500/v1668539930/${data.Images[2].mainImage.public_id}`}
-						alt={data.Images[2].mainImage.alt}
+						src={getImageSrc(data.Images[2].mainImage, 'f_auto,q_auto,w_500')}
+						alt={data.Images[2].mainImage?.alt || data.Images[2].title}
 						loading="lazy"
 					/>
 				</div>

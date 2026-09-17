@@ -7,8 +7,18 @@ export async function load() {
     title,
     slug,
     body,
-    mainImage,
-    secondaryImage,
+    mainImage{
+      alt,
+      asset->{ url },
+      secure_url,
+      url
+    },
+    secondaryImage{
+      alt,
+      asset->{ url },
+      secure_url,
+      url
+    },
   }`;
 	const Bio = await client.fetch(query);
 

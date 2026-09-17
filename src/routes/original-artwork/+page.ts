@@ -1,8 +1,15 @@
 import client from '$lib/client';
 export const prerender = true;
 
+const imageProjection = `mainImage{
+  alt,
+  asset->{
+    url
+  }
+}`;
+
 export async function load() {
-	const query = `*[_type == "artwork"  && ("Original" in imgTypes[]->.title)]  | order(order asc){
+	const query = `*[_type == "artwork" && ("Original" in imgTypes[]->title)] | order(orderRank){
       _id,
       title,
       slug,
@@ -14,7 +21,7 @@ export async function load() {
       originalDescription,
       printsDescription,
       etsyLink,
-      mainImage
+      ${imageProjection}
 		}`;
 	const Artwork = await client.fetch(query);
 

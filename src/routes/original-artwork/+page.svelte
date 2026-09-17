@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fade, blur } from 'svelte/transition';
 	import Card from '$components/card.svelte';
 	import ArtworkContainer from '$components/artworkContainer.svelte';
 
@@ -9,7 +8,7 @@
 
 <svelte:head><title>Original Artwork | Brenda Bennett Art</title></svelte:head>
 
-<div class="container" in:fade>
+<div class="container">
 	<h1>Original Artwork</h1>
 	<p>
 		Serious collectors of original works are welcome to schedule an appointment at Brenda’s home
@@ -18,8 +17,8 @@
 	</p>
 
 	<ArtworkContainer additionalClasses="fourWide">
-		{#each artwork as { title, size, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink }, i}
-			<div class="cardContainer" in:blur={{ duration: 300, delay: 100 * i }}>
+		{#each artwork as { title, size, price, sold, mainImage, originalDescription, printsDescription, commissionDescription, etsyLink }}
+			<div class="cardContainer">
 				<Card
 					{title}
 					{size}

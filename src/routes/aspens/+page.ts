@@ -2,7 +2,7 @@ import client from '$lib/client';
 export const prerender = true;
 
 export async function load() {
-	const query = `*[_type == "artwork" && ("Aspen" in series[]->.title) ]  | order(order asc){
+	const query = `*[_type == "artwork" && ("Aspen" in series[]->title)] | order(orderRank) {
       _id,
       title,
       slug,
@@ -15,7 +15,10 @@ export async function load() {
       printsDescription,
       commissionDescription,
       etsyLink,
-      mainImage
+      mainImage{
+        alt,
+        asset->{ url }
+      }
 		}`;
 	const Artwork = await client.fetch(query);
 
